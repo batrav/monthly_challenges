@@ -31,13 +31,13 @@ def index(request):
         mon_path = reverse('month-challenge', args=[mon])
         list_items += f'<li><a href="{mon_path}">{capitalized_month}</a></li>'
 
-    response_data = """
+    response_data = f"""
     <ul>
-        <li><a href='/challenges/january'>january</a></li>
+        {list_items}
     </ul>
     
     """
-    return HttpResponse()
+    return HttpResponse(response_data)
 
 
 def monthly_challenge_by_number(request, month):
